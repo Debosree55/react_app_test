@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
-import ExportItem from './component/ExpenseReport'
+import ExpenseItem from './component/Expense/ExpenseReport'
+import NewExpense from './component/NewExpense/NewExpense';
 
 function App() {
 
@@ -27,32 +28,33 @@ function App() {
   ];
 
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      {/* {expenses.forEach(element => {
-      <ExportItem title= {element.title} amount= {element.amount } date= {element.date}></ExportItem>
+//     <div className="App">
+//       {/* <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//           Edit <code>src/App.js</code> and save to reload.
+//         </p>
+//         <a
+//           className="App-link"
+//           href="https://reactjs.org"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Learn React
+//         </a>
+//       </header> */}
+//       {/* {expenses.forEach(element => {
+//       <ExportItem title= {element.title} amount= {element.amount } date= {element.date}></ExportItem>
         
-      })} */}
+//       })} */}
+<div>
+      {/* <ExpenseItem items={expenses}></ExpenseItem> */}
+      <ExpenseItem title= {expenses[0].title} amount= {expenses[0].amount } date= {expenses[0].date}></ExpenseItem>
+      <ExpenseItem title= {expenses[1].title} amount= {expenses[1].amount } date= {expenses[1].date}></ExpenseItem>
+      <ExpenseItem title= {expenses[2].title} amount= {expenses[2].amount } date= {expenses[2].date}></ExpenseItem>
+      <NewExpense/>
 
-      <ExportItem title= {expenses[0].title} amount= {expenses[0].amount } date= {expenses[0].date}></ExportItem>
-      <ExportItem title= {expenses[1].title} amount= {expenses[1].amount } date= {expenses[1].date}></ExportItem>
-      <ExportItem title= {expenses[2].title} amount= {expenses[2].amount } date= {expenses[2].date}></ExportItem>
-
-
-    </div>
+</div>
   );
 }
 
