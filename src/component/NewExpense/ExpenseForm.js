@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     const [updateTitle, setUpdateTitle]=useState('')
     const [updateAmount, setupdateAmount]=useState('')
     const [updateDate, setupdateDate]=useState('')
 
     const changeTitle=(event) =>{
         setUpdateTitle(event.target.value)
-        console.log(event.target.value)
-        // setUpdateTitle((prevstate, event)=>{
-        //     return {...prevstate, updateTitle:event.target.value}
-        // })
+        // console.log(event.target.value)
     }
     const changeAmount=(event) =>{
         setupdateAmount(event.target.value)
-        console.log(event.target.value)
+        // console.log(event.target.value)
     }
     const changeDate=(event) =>{
         setupdateDate(event.target.value)
-        console.log(event.target.value)
+        // console.log(event.target.value)
     }
 
     const submithandler =(event) =>{
@@ -28,11 +25,18 @@ const ExpenseForm = () => {
             amount: updateAmount,
             date: updateDate
         }
+        // console.log("Expense data", expenseData)
+        props.onSave(expenseData)
         setUpdateTitle('')
         setupdateAmount('')
         setupdateDate('')
-        console.log("Expense data", expenseData)
+        props.onCancel()
+       
 
+    }
+
+    const exitForm=()=>{
+        props.onCancel()
     }
     return (
         <form onSubmit={submithandler}>
@@ -50,7 +54,8 @@ const ExpenseForm = () => {
                 <input type="date" onChange={changeDate} value={updateDate}></input>
             </div>
             <div className='new-expense__action'>
-                <button type='submit'>Submit Expesnse</button>
+                <button type='submit' style={{float:"right"}}>Submit</button>
+                <button type='submit' style={{float:"right"}} onClick={exitForm} >Cancel</button>
             </div>
             </div>
         </form>
